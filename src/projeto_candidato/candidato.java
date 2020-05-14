@@ -25,6 +25,8 @@ public class candidato {
 
 		// ler a escolaridade
 		ESCOLARIDADE = sc.nextInt();
+		
+		//ler outros dados
 
 		System.out.print("Quantos anos de experiência profissional? ");
 		EXPPRO = sc.nextDouble();
@@ -34,6 +36,9 @@ public class candidato {
 
 		System.out.print("Você tem habilitação de motorista? (S/N) ");
 		HABILITACAO = sc.next().charAt(0);
+		
+		
+		//Calculo experiencia
 		
         if (EXPPRO == 0){
             PEXPPRO = 0;
@@ -48,10 +53,40 @@ public class candidato {
             PEXPPRO = 40;
         }
         
+        // calculo escolaridade
         PESCOLARIDADE = ESCOLARIDADE*10;
         
+        
+        // mostrar resultado da pontuação
         System.out.println("Pontos por escolaridade: "+ PESCOLARIDADE);
         System.out.println("Pontos por experiência: "+ PEXPPRO);
+        
+        // calculo resultado final
+        
+        if (PESCOLARIDADE >= 30 && PEXPPRO == 40 && HABILITACAO == 'S' && VIAJEM == 'S'){
+            System.out.println("Você está habilitado para o(s) seguinte(s) cargo(s):");
+            System.out.println("ASSISTENTE");
+            System.out.println("GERENTE");
+            System.out.println("ANALISTA");
+        }
+        
+        else if(PESCOLARIDADE >= 30 && PEXPPRO == 40  && VIAJEM == 'S' && HABILITACAO == 'N'){
+            System.out.println("Você está habilitado para o(s) seguinte(s) cargo(s):");
+            System.out.println("GERENTE");
+            System.out.println("ANALISTA");
+        }
+        else if(PESCOLARIDADE >= 30 && PEXPPRO <= 20 && HABILITACAO == 'N' && VIAJEM == 'N'){
+            System.out.println("Você está habilitado para o(s) seguinte(s) cargo(s):");
+            System.out.println("GERENTE");
+
+        }
+        else if(PESCOLARIDADE >= 20 && HABILITACAO == 'S'){
+            System.out.println("Você está habilitado para o(s) seguinte(s) cargo(s):");
+            System.out.println("ASSISTENTE");
+        }
+        else {
+            System.out.println("Infelizmente seu perfil não atende a empresa");
+        }
 
 		sc.close();
 
