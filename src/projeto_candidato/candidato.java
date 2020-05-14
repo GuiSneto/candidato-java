@@ -11,7 +11,7 @@ public class candidato {
 		Locale.setDefault(Locale.US); // idioma US
 		Scanner sc = new Scanner(System.in); // leitura
 
-		int ESCOLARIDADE; // variavel
+		int ESCOLARIDADE,PEXPPRO,PESCOLARIDADE; // variavel
 		double EXPPRO;
 		char VIAJEM, HABILITACAO;
 
@@ -34,6 +34,24 @@ public class candidato {
 
 		System.out.print("Você tem habilitação de motorista? (S/N) ");
 		HABILITACAO = sc.next().charAt(0);
+		
+        if (EXPPRO == 0){
+            PEXPPRO = 0;
+        }
+        else if(EXPPRO <= 2){
+            PEXPPRO = 10;
+        }
+        else if (EXPPRO > 2 && EXPPRO <5){
+            PEXPPRO = 20;
+        }
+        else {
+            PEXPPRO = 40;
+        }
+        
+        PESCOLARIDADE = ESCOLARIDADE*10;
+        
+        System.out.println("Pontos por escolaridade: "+ PESCOLARIDADE);
+        System.out.println("Pontos por experiência: "+ PEXPPRO);
 
 		sc.close();
 
